@@ -4,9 +4,15 @@ plugins {
 
 version '1.0'
 
-repositories {
-    mavenCentral()
-}
+//repositories {
+//    mavenCentral()
+//}
+
+//allprojects {
+//    repositories {
+//        maven { url 'https://jitpack.io' }
+//    }
+//}
 
 dependencies {
     testImplementation 'org.assertj:assertj-core:3.22.0'

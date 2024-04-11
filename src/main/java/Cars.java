@@ -9,6 +9,8 @@ public class Cars {
             cars.add(new Car(strArr[i], 0));
         }
         return getCars();
+
+
     }
 
     public String judgeWinner(List<Car> cars) {

@@ -16,10 +16,11 @@ public class RacingController {
         inputView.requestEntry();
         String inputEntryCars = inputView.inputStringData();
 
-        Cars cars = new Cars(carGenerater.splitEntry(inputEntryCars));
+        Cars cars = new Cars();
+        List<Car> carsList = cars.makeCars(carGenerater.splitEntry(inputEntryCars));
 
         try {
-            cars.validateCar(cars.getCars());
+            cars.validateCar(carsList);
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage());
         }
@@ -28,7 +29,7 @@ public class RacingController {
             inputView.requestTryCount();
             CountTry countTry = new CountTry(inputView.inputIntData());
 
-            playRound(cars.getCars(), countTry.getCountTry(), cars);
+            playRound(carsList, countTry.getCountTry(), cars);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }

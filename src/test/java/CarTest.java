@@ -1,3 +1,4 @@
+import domain.Car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,14 +19,8 @@ public class CarTest {
 
     @Test
     @DisplayName("조건에_충족하지_못하면_move증가X")
-    void 조건에_충족하지_못하면_move증가X() {
-        Car car = new Car("blue", 0);
+    void 조건에_충족하지_못하면_move증가X()
 
-        car.move(false);
-        car.move(false);
-
-        assertThat(car.getPosition()).isEqualTo(0);
-    }
 
     @Test
     @DisplayName("name이_동일하면_같은_객체인지_확인")

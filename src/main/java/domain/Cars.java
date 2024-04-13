@@ -8,8 +8,11 @@ import java.util.Set;
 public class Cars {
     private List<Car> cars;
 
-    public Cars(List<Car> carList) {
-        this.cars = carList;
+    public Cars(String[] strArr) {
+        cars = new ArrayList<>();
+        for (int i = 0; i < strArr.length; i++) {
+            cars.add(new Car(strArr[i], 0));
+        }
     }
 
     public String judgeWinner(List<Car> cars) {

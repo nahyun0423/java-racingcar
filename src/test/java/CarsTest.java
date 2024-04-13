@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CarsTest {
-    private Cars cars = new Cars();
+    private Cars cars;
 
     @Test
     @DisplayName("position이_가장큰_자동차가_우승자")
@@ -22,6 +22,7 @@ public class CarsTest {
         List<Car> list = new ArrayList<>();
         list.add(car1);
         list.add(car2);
+        cars = new Cars(list);
 
         assertThat(cars.judgeWinner(list)).isEqualTo("blue ");
     }
@@ -33,6 +34,7 @@ public class CarsTest {
         Car car2 = new Car("blue", 5);
 
         List<Car> list = Arrays.asList(car1, car2);
+        cars = new Cars(list);
 
         assertThat(cars.judgeWinner(list)).isEqualTo("red blue ");
     }
@@ -45,6 +47,7 @@ public class CarsTest {
         Car car3 = new Car("red", 5);
 
         List<Car> list = Arrays.asList(car1, car2, car3);
+        cars = new Cars(list);
 
         assertThrows(IllegalArgumentException.class, () -> {
             cars.validateCar(list);

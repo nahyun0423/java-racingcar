@@ -16,7 +16,7 @@ public class RacingController {
         inputView.requestEntry();
         String inputEntryCars = inputView.inputStringData();
 
-        Cars cars = new Cars(carGenerater.splitEntry(inputEntryCars));
+        Cars cars = new Cars(carGenerater.putInCars(inputEntryCars));
 
         try {
             cars.validateCar(cars.getCars());

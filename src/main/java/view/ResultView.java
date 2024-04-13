@@ -1,13 +1,6 @@
-public class View {
+package view;
 
-    public void requestCarCount() {
-        System.out.println("자동차는 몇 대인가요?");
-    }
-
-    public void requestTryCount() {
-        System.out.println("시도할 횟수는 몇 회인가요?");
-    }
-
+public class ResultView {
     public void printResult() {
         System.out.println("실행결과 :");
     }
@@ -20,7 +13,14 @@ public class View {
         System.out.println("@@@@@@@@@@@");
     }
 
+    public void printCarName(String name) {
+        System.out.print(name + ": ");
+    }
     public void printCarMoving(String result) {
         System.out.println(result);
+    }
+
+    public void printWinner(String winner) {
+        System.out.println(winner + "가 최종 우승했습니다.");
     }
 }

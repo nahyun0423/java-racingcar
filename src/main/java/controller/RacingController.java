@@ -1,9 +1,12 @@
+package controller;
+
+import domain.*;
 import view.InputView;
 import view.ResultView;
 
 import java.util.List;
 
-public class Game {
+public class RacingController {
     private ResultView resultView = new ResultView();
     private InputView inputView = new InputView();
     private Condition condition = new Condition();
@@ -13,11 +16,19 @@ public class Game {
         inputView.requestEntry();
         String inputEntryCars = inputView.inputStringData();
 
+        Cars cars = new Cars(carGenerater.putInCars(inputEntryCars));
+
+        try {
+            cars.validateCar(cars.getCars());
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+
+        try {
             inputView.requestTryCount();
             CountTry countTry = new CountTry(inputView.inputIntData());
 
-            playRound(carGenerater.splitEntry(inputEntryCars), countTry.getCountTry());
-
+            playRound(cars.getCars(), countTry.getCountTry(), cars);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
